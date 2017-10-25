@@ -1,0 +1,72 @@
+{
+  "name": "react-highlight-updates",
+  "version": "1.0.0",
+  "description": "Visually highlight when React components are updated",
+  "main": "dist/index.js",
+  "scripts": {
+    "prepublish": "npm test && npm run dist",
+    "dist": "rm -rf dist/ && mkdir -p dist/ && tsc --project src/tsconfig.json",
+    "tests": "jest",
+    "lint": "tslint --project tsconfig.json --type-check '{ts,tests,src}/**/*.{ts,tsx}'",
+    "test": "npm run lint && npm run tests -- --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jakesidsmith/react-highlight-updates.git"
+  },
+  "keywords": [
+    "react",
+    "highlight",
+    "updates",
+    "render",
+    "rerender",
+    "component",
+    "components"
+  ],
+  "author": "Jake 'Sid' Smith",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jakesidsmith/react-highlight-updates/issues"
+  },
+  "homepage": "https://github.com/jakesidsmith/react-highlight-updates#readme",
+  "dependencies": {
+    "@types/react": "16.0.18",
+    "@types/react-dom": "16.0.2",
+    "react": "16.0.0",
+    "react-dom": "16.0.0",
+    "typescript": "2.5.3"
+  },
+  "devDependencies": {
+    "@types/jest": "19.2.2",
+    "jest": "20.0.3",
+    "ts-jest": "20.0.3",
+    "tslint": "5.8.0",
+    "tslint-eslint-rules": "4.1.1",
+    "tslint-react": "3.2.0"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*"
+  },
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    },
+    "transform": {
+      "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/tests/.*|\\.(test|spec))\\.(ts|tsx|js|jsx)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx"
+    ],
+    "mapCoverage": true
+  }
+}
