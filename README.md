@@ -12,7 +12,7 @@ npm install react-highlight-updates --save --save-exact
 
 ## Usage
 
-Simply import the highlightUpdates function and call it.
+Simply import the `highlightUpdates` function and call it.
 
 ```typescript
 import { highlightUpdates } from 'react-highlight-updates';
