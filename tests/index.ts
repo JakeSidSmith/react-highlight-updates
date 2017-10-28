@@ -45,17 +45,15 @@ describe('react-highlight-updates', () => {
     }
   }
 
-  const originalComponentDidUpdate = TestComponent.prototype.componentDidUpdate;
-
   it('should replace componentDidUpdate', () => {
+    const originalComponentDidUpdate = TestComponent.prototype.componentDidUpdate;
+
     React.createElement(TestComponent);
     expect(TestComponent.prototype.componentDidUpdate).not.toBe(originalComponentDidUpdate);
   });
 
   it('should call the original componentDidUpdate function', () => {
     const element = document.createElement('div');
-    document.body.appendChild(element);
-
     const root = ReactDOM.render(React.createElement(TestComponent), element);
 
     expect(fn).not.toHaveBeenCalled();
