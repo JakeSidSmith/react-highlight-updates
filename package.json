@@ -1,10 +1,6 @@
 {
   "name": "react-highlight-updates",
-<<<<<<< HEAD
   "version": "0.0.3",
-=======
-  "version": "0.0.1",
->>>>>>> parent of fd3d1c2... Require React & ReactDOM to be passed to highlightUpdates
   "description": "Visually highlight when React components are updated",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
