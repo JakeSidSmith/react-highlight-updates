@@ -52,7 +52,8 @@ export const highlightUpdates = (color: string = 'rgba(255, 0, 0, 0.5)') => {
           }
 
           void (node as any).offsetWidth; // tslint:disable-line:no-unused-expression
-          node.className = `${node.className} ${HIGHLIGHT_CLASS}`;
+          const needsSpace = node.className || node.className.lastIndexOf(' ') !== node.className.length - 1;
+          node.className = `${node.className}${needsSpace ? ' ' + HIGHLIGHT_CLASS : HIGHLIGHT_CLASS}`;
         }
 
         if (typeof originalComponentDidUpdate === 'function') {

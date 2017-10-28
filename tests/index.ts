@@ -61,4 +61,17 @@ describe('react-highlight-updates', () => {
     expect(fn).toHaveBeenCalled();
   });
 
+  it('should add the react-update-highlight class', () => {
+    const element = document.createElement('div');
+    document.body.appendChild(element);
+    const root = ReactDOM.render(React.createElement(TestComponent), element);
+    const node = ReactDOM.findDOMNode(root);
+
+    expect(node.className).toBe('');
+    root.componentDidUpdate();
+    expect(node.className).toBe('react-update-highlight');
+    root.componentDidUpdate();
+    expect(node.className).toBe('react-update-highlight');
+  });
+
 });
