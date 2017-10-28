@@ -43,18 +43,21 @@ export const highlightUpdates = (color: string = 'rgba(255, 0, 0, 0.5)') => {
       component.prototype.hasReactUpdateHighlight = true;
       (component as any).prototype.componentDidUpdate = function () {
         const updateArgs = Array.prototype.slice.call(arguments);
+        let node: Element;
 
-        const node = ReactDOM.findDOMNode(this);
-
-        if (node) {
-          if (MATCHES_HIGHLIGHT_CLASS.test(node.className)) {
-            node.className = node.className.replace(MATCHES_HIGHLIGHT_CLASS, '');
-          }
-
-          void (node as any).offsetWidth; // tslint:disable-line:no-unused-expression
-          const needsSpace = node.className || node.className.lastIndexOf(' ') !== node.className.length - 1;
-          node.className = `${node.className}${needsSpace ? ' ' + HIGHLIGHT_CLASS : HIGHLIGHT_CLASS}`;
+        try {
+          node = ReactDOM.findDOMNode(this);
+        } catch (error) {
+          return;
         }
+
+        if (MATCHES_HIGHLIGHT_CLASS.test(node.className)) {
+          node.className = node.className.replace(MATCHES_HIGHLIGHT_CLASS, '');
+        }
+
+        void (node as any).offsetWidth; // tslint:disable-line:no-unused-expression
+        const needsSpace = node.className || node.className.lastIndexOf(' ') !== node.className.length - 1;
+        node.className = `${node.className}${needsSpace ? ' ' + HIGHLIGHT_CLASS : HIGHLIGHT_CLASS}`;
 
         if (typeof originalComponentDidUpdate === 'function') {
           originalComponentDidUpdate.apply(this, updateArgs);

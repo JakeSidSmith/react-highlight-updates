@@ -91,4 +91,14 @@ describe('react-highlight-updates', () => {
     expect(node2.className).toBe('test react-update-highlight');
   });
 
+  it('should handle a component being unmounted', () => {
+    const element = document.createElement('div');
+    document.body.appendChild(element);
+    const root = ReactDOM.render(React.createElement(TestComponent), element);
+
+    ReactDOM.unmountComponentAtNode(element);
+
+    root.componentDidUpdate();
+  });
+
 });
