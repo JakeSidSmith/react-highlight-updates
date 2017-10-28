@@ -61,6 +61,12 @@ describe('react-highlight-updates', () => {
     expect(fn).toHaveBeenCalled();
   });
 
+  class TestComponent2 extends React.Component { // tslint:disable-line:max-classes-per-file
+    public render () {
+      return React.createElement('div', {className: 'test'});
+    }
+  }
+
   it('should add the react-update-highlight class', () => {
     const element = document.createElement('div');
     document.body.appendChild(element);
@@ -72,6 +78,17 @@ describe('react-highlight-updates', () => {
     expect(node.className).toBe('react-update-highlight');
     root.componentDidUpdate();
     expect(node.className).toBe('react-update-highlight');
+
+    const element2 = document.createElement('div');
+    document.body.appendChild(element2);
+    const root2 = ReactDOM.render(React.createElement(TestComponent2), element2);
+    const node2 = ReactDOM.findDOMNode(root2);
+
+    expect(node2.className).toBe('test');
+    (root2 as any).componentDidUpdate();
+    expect(node2.className).toBe('test react-update-highlight');
+    (root2 as any).componentDidUpdate();
+    expect(node2.className).toBe('test react-update-highlight');
   });
 
 });
