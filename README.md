@@ -16,12 +16,12 @@ npm install react-highlight-updates --save --save-exact
 
 ## Usage
 
-Simply import the `highlightUpdates` function and call it with your React & ReactDOM modules.
+Simply import the `highlightUpdates` function and call it.
 
 ```typescript
 import { highlightUpdates } from 'react-highlight-updates';
 
-highlightUpdates(React, ReactDOM);
+highlightUpdates();
 ```
 
 The default highlight color is `rgba(255, 0, 0, 0.5)`, but you can pass a custom color to the highlightUpdates function.
@@ -29,5 +29,5 @@ The default highlight color is `rgba(255, 0, 0, 0.5)`, but you can pass a custom
 You should use a transparent color for the best results e.g.
 
 ```typescript
-highlightUpdates(React, ReactDOM, 'rgba(0, 255, 0, 0.5)');
+highlightUpdates('rgba(0, 255, 0, 0.5)');
 ```
