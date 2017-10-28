@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import { highlightUpdates } from '../src/';
 
 describe('react-highlight-updates', () => {
@@ -30,6 +31,36 @@ describe('react-highlight-updates', () => {
     React.createElement('div', props, 'child1', 'child2');
 
     expect(createElementSpy).toHaveBeenCalledWith('div', props, 'child1', 'child2');
+  });
+
+  const fn = jest.fn();
+
+  class TestComponent extends React.Component<{}, {}> {
+    public componentDidUpdate () {
+      fn();
+    }
+
+    public render () {
+      return React.createElement('div');
+    }
+  }
+
+  const originalComponentDidUpdate = TestComponent.prototype.componentDidUpdate;
+
+  it('should replace componentDidUpdate', () => {
+    React.createElement(TestComponent);
+    expect(TestComponent.prototype.componentDidUpdate).not.toBe(originalComponentDidUpdate);
+  });
+
+  it('should call the original componentDidUpdate function', () => {
+    const element = document.createElement('div');
+    document.body.appendChild(element);
+
+    const root = ReactDOM.render(React.createElement(TestComponent), element);
+
+    expect(fn).not.toHaveBeenCalled();
+    root.componentDidUpdate();
+    expect(fn).toHaveBeenCalled();
   });
 
 });
