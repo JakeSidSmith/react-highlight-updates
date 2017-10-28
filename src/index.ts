@@ -1,8 +1,5 @@
-import * as ReactImport from 'react';
-import * as ReactDOMImport from 'react-dom';
-
-type TReact = typeof ReactImport;
-type TReactDOM = typeof ReactDOMImport;
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 
 const HIGHLIGHT_CLASS = 'react-update-highlight';
 const MATCHES_HIGHLIGHT_CLASS = /\s*\breact-update-highlight\b\s*/gi;
@@ -10,7 +7,7 @@ const MATCHES_HIGHLIGHT_CLASS = /\s*\breact-update-highlight\b\s*/gi;
 const STYLE = document.createElement('style');
 STYLE.type = 'text/css';
 
-export const highlightUpdates = (React: TReact, ReactDOM: TReactDOM, color: string = 'rgba(255, 0, 0, 0.5)') => {
+export const highlightUpdates = (color: string = 'rgba(255, 0, 0, 0.5)') => {
   (window as any).React = React;
 
   STYLE.innerHTML =
