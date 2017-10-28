@@ -8,8 +8,6 @@ const STYLE = document.createElement('style');
 STYLE.type = 'text/css';
 
 export const highlightUpdates = (color: string = 'rgba(255, 0, 0, 0.5)') => {
-  (window as any).React = React;
-
   STYLE.innerHTML =
 `.react-update-highlight {
   animation-name: react-update-highlight;
