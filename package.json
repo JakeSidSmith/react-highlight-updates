@@ -7,7 +7,7 @@
     "prepublish": "npm test && npm run dist",
     "dist": "rm -rf dist/ && mkdir -p dist/ && tsc --project src/tsconfig.json",
     "tests": "jest",
-    "lint": "tslint --project tsconfig.json --type-check '{ts,tests,src}/**/*.{ts,tsx}'",
+    "lint": "tslint --project tsconfig.json '{ts,tests,src}/**/*.{ts,tsx}'",
     "test": "npm run lint && npm run tests -- --coverage"
   },
   "repository": {
