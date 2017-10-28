@@ -8,7 +8,7 @@ describe('react-highlight-updates', () => {
 
   it('should replace React.createElement', () => {
     expect(React.createElement).toBe(createElementSpy);
-    highlightUpdates();
+    highlightUpdates(React, ReactDOM);
     expect(React.createElement).not.toBe(createElementSpy);
   });
 
@@ -19,7 +19,7 @@ describe('react-highlight-updates', () => {
   });
 
   it('should accept a custom color', () => {
-    highlightUpdates('rgba(0, 255, 0, 0.5)');
+    highlightUpdates(React, ReactDOM, 'rgba(0, 255, 0, 0.5)');
 
     const style = document.getElementsByTagName('style')[0];
 
