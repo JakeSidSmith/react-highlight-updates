@@ -6,7 +6,7 @@
 
 ## About
 
-Ever wondered which of your components are actually re-rendering when you update your store, set state, or even just click on an element? Now you can easily visually highlight which components are being updated and easily track down th cause to improve your apps' performance.
+Ever wondered which of your components are actually re-rendering when you update your store, set state, or even just click on an element? Now you can easily visually highlight which components are being updated and track down the cause, to improve your apps' performance.
 
 ## Installation
 
