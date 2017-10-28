@@ -1,5 +1,7 @@
 # react-highlight-updates
 
+[![CircleCI](https://circleci.com/gh/JakeSidSmith/react-highlight-updates/tree/master.svg?style=svg)](https://circleci.com/gh/JakeSidSmith/react-highlight-updates/tree/master)
+
 **Visually highlight when React components are updated**
 
 ## Installation
